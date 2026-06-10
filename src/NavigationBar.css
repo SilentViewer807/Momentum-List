@@ -1,0 +1,265 @@
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 250px; 
+  max-width: 250px;
+  height: 100dvh;
+  border-right: 1px solid var(--highlight-color);
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: border-color 0.4s ease;
+}
+
+
+
+
+
+/* TOP BAR */
+
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 12px;
+  font-weight: bold;
+  background-color: var(--container-color);
+  border-bottom: 1px solid var(--highlight-color);
+  box-sizing: border-box;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.nav-title {
+  margin: 0;
+  font-size: 21px;
+}
+
+.nav-settings-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.nav-settings {
+  width: 28px;
+  transition: transform 0.05s ease, filter 0.4s ease;
+  filter: var(--invert);
+}
+
+.nav-settings:active {
+  transform: scale(0.88);
+}
+
+
+
+
+
+/* OTHER BARS */
+
+.nav-scroll {
+  overflow-y: auto;
+  padding: 8px 0;
+  background-color: var(--container-color);
+  scroll-behavior: smooth;
+  flex: 1;
+  transition: background-color 0.4s ease;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--text-color);
+  width: 100%;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: monospace, Verdana, Arial, sans-serif;
+  font-size: inherit;
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.nav-icon {
+  margin-right: 6px;
+}
+
+.plus-icon, .x-icon {
+  filter: var(--invert);
+  transition: filter 0.4s ease;
+}
+
+.nav-label {
+  flex: 1;
+  margin-left: 4px;
+  margin: 0;
+}
+
+.nav-count {
+  opacity: 0.7;
+}
+
+.delete-btn .nav-icon {
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+/* Item Effects */
+.nav-item.active {
+  background: var(--highlight-color);
+  font-weight: bold;
+}
+
+/* Custom Items */
+.custom-item {
+  justify-content: flex-start;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.custom-item.deleting {
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+}
+
+.custom-item .delete-x {
+  color: var(--x-color);
+  font-size: 25px;
+  position: absolute;
+  right: 14px;
+}
+
+/* Dividers */
+.nav-divider {
+  height: 1px;
+  background: var(--highlight-color);
+  margin: 12px 0;
+  flex-shrink: 0;
+}
+
+
+
+
+
+/* MEDIA QUERRIES */
+
+/* Mobile */
+@media (max-width: 700px) {
+  .nav-container {
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+  }
+
+  .nav-top {
+    padding: min(4dvw, 16px);
+  }
+
+  .nav-title {
+    font-size: min(8.5vw, 36px);
+  }
+
+  .nav-settings {
+    width: min(10vw, 40px);
+    margin-right: 4px;
+  }
+
+  /* Other Bars */
+  .nav-scroll {
+    display: flex;
+    position: absolute;
+    top: calc(100dvh - 64px);
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: var(--container-color);
+    border-top: 1px solid var(--highlight-color);
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0;
+    z-index: 999;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+
+  .nav-section {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* Items */
+  .nav-item {
+    flex-direction: column;
+    padding: 8px 4px;
+    font-size: 14px;
+    width: 70px;
+  }
+
+  .nav-item.centered {
+    min-width: 70px;
+    width: calc(16dvw + 14px);
+  }
+
+  .nav-icon {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .nav-label {
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+  .no-delete {
+    display: none;
+  }
+
+  .custom-item .delete-x {
+    position: reletive;
+    right: 4px;
+    top: -4px;
+    font-size: 30px;
+  }
+
+  .nav-container::after {
+    content: "";
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 70px;
+    margin: 0 18px;
+  }
+}
+
+/* Medium Phone */
+@media (min-width: 362px) and (max-width: 700px) {
+  .nav-section.centered {
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    height: 64px;
+    width: 100%;
+  }
+}
+
+/* Computor Hover */
+@media (pointer: fine) {
+  .nav-item:hover {
+    transform: translateY(-3px);
+  }
+}
