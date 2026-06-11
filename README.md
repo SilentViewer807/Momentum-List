@@ -4,7 +4,7 @@ Built with React and Vite. HTML, CSS, and JavaScript are included.
 
 ## Quick View
 
-[View Momentum List On Vercel](https://docs.github.com)
+[View Momentum List On Vercel](https://momentum-list.vercel.app)
 
 ## Features
 
