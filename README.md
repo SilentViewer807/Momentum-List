@@ -26,11 +26,15 @@ Built with React and Vite. HTML, CSS, and JavaScript are included.
    ```bash
    git clone https://github.com/SilentViewer807/Momentum-List.git
    ```
-2. Install dependencies:
+2. Navigate to the project directory:
+   ```bash
+   cd Momentum-List
+   ```
+3. Install dependencies:
    ```bash
    npm install
    ```
-3. Run the development server:
+4. Run the development server:
    ```bash
    npm run dev
    ```
